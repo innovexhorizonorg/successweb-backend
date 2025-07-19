@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Ahmad Raza",
+    "email": "galpha964@gmail.com",
+    "phone": "03001122001",
+    "password": "123123123",
+    "invited_by": "1"
+  },
+  {
+    "name": "Taha Ijaz",
+    "email": "taharajpoot@gmail.com",
+    "phone": "03001122002",
+    "password": "123123123",
+    "invited_by": "2000"
+  },
+  {
+    "name": "Sameer",
+    "email": "sameer@gmail.com",
+    "phone": "03001122003",
+    "password": "123123123",
+    "invited_by": "2006"
+  },
+  {
+    "name": "Muneeb",
+    "email": "muneeb@gmail.com",
+    "phone": "03001122004",
+    "password": "123123123",
+    "invited_by": "2006"
+  },
+  {
+    "name": "Zain Rajpoot",
+    "email": "zainrajpoot@gmail.com",
+    "phone": "03001122003",
+    "password": "123123123",
+    "invited_by": "2009"
+  }
+]

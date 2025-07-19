@@ -1,0 +1,44 @@
+{
+  "name": "super-backend",
+  "version": "1.1.0",
+  "description": "An Express.js backend with Sequelize ORM optimized for Multilevel Marketing Website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "migrate": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all"
+  },
+  "keywords": [
+    "express",
+    "sequelize",
+    "backend",
+    "google-indexing",
+    "SEO"
+  ],
+  "author": "PirateCoderz",
+  "license": "MIT",
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "axios": "^1.8.4",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "express-validator": "^7.2.1",
+    "googleapis": "^148.0.0",
+    "imagekit": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.13.0",
+    "request": "^2.88.2",
+    "sequelize": "^6.37.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2"
+  }
+}
