@@ -51,9 +51,9 @@ app.use(
 // ---------------------------------------------------- Server  Port -------------------------------------------------------------------------
 
 const port = process.env.PORT || 5005;
-app.listen(port, () => {
-  console.log(`Server is running perfectly on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running perfectly on http://localhost:${port}`);
+// });
 
 
 // ---------------------------------------------------- ALTER TABLES -------------------------------------------------------------------------
