@@ -4,8 +4,8 @@
   "description": "An Express.js backend with Sequelize ORM optimized for Multilevel Marketing Website.",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "dev": "node server",
+    "start": "node index.js",
+    "dev": "node index.js",
     "migrate": "sequelize db:migrate",
     "seed": "sequelize db:seed:all"
   },

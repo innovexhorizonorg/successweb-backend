@@ -1,12 +1,11 @@
 const dotenv = require('dotenv');
 const express = require("express");
 const cors = require("cors");
-const serverless = require("@vendia/serverless-express");
 const http = require("http");
 
-const { swaggerUi, swaggerSpec } = require("../utils/swagger/swaggerConfig.js");
+const { swaggerUi, swaggerSpec } = require("./utils/swagger/swaggerConfig.js");
 
-const { users, subscriptions, accounts, withdrawals, transactions, password_logs, sequelize } = require("../models/index.js");
+const { users, subscriptions, accounts, withdrawals, transactions, password_logs, sequelize } = require("./models");
 
 
 const app = express();
@@ -33,11 +32,11 @@ app.get("/successweb", (req, res) => { res.send("Hello from Success Web Backend"
 
 // ---------------------------------------------------- Super Backend Routes -----------------------------------------------------------------------
 
-app.use("/users", require("../routes/users/index.js"));
-app.use("/subscriptions", require("../routes/subscriptions/index.js"));
-app.use("/accounts", require("../routes/accounts/index.js"));
-app.use("/withdrawals", require("../routes/withdrawals/index.js"));
-app.use("/inquiryemail", require("../routes/inquiryemail/index.js"));
+app.use("/users", require("./routes/users"));
+app.use("/subscriptions", require("./routes/subscriptions/index.js"));
+app.use("/accounts", require("./routes/accounts/index.js"));
+app.use("/withdrawals", require("./routes/withdrawals/index.js"));
+app.use("/inquiryemail", require("./routes/inquiryemail/index.js"));
 
 // ---------------------------------------------------- Swagger Main Integration -------------------------------------------------------------
 
@@ -52,9 +51,9 @@ app.use(
 // ---------------------------------------------------- Server  Port -------------------------------------------------------------------------
 
 const port = process.env.PORT || 5005;
-// app.listen(port, () => {
-//   console.log(`Server is running perfectly on http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server is running perfectly on http://localhost:${port}`);
+});
 
 
 // ---------------------------------------------------- ALTER TABLES -------------------------------------------------------------------------
@@ -70,5 +69,3 @@ async function alterTable() {
 // ---------------------------------------------------- UTILITY Functions --------------------------------------------------------------------
 
 // alterTable();
-
-module.exports = serverless(app);
