@@ -1,5 +1,5 @@
 {
-  "name": "super-backend",
+  "name": "successweb-backend",
   "version": "1.1.0",
   "description": "An Express.js backend with Sequelize ORM optimized for Multilevel Marketing Website.",
   "main": "index.js",
