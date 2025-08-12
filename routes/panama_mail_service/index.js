@@ -68,9 +68,9 @@ router.post('/send-mail', async (req, res) => {
   try {
     await transporter.sendMail({
       // from: `"Panama Travel Ltd" <${process.env.SMTP_USER || 'sales@panamatravel.co.uk'}>`,
-      from: `"Panama Travel Ltd" <${gmail}'}>`,
+      from: "galpha964@gmail.com",
       to: `sales@panamatravel.co.uk`, // Sending to sales + user
-      subject: 'New Booking Inquiry',
+      subject: `New Inquiry by ${gmail}`,
       html: htmlMessage,
     });
 
@@ -129,10 +129,10 @@ router.post("/inquiry", async (req, res) => {
 
     // ---- Send email to Sales + User ----
     await transporter.sendMail({
-      from: `"Website Inquiries" <${email}>`,
+      from: `"Website Inquiries" <${'galpha964@gmail.com'}>`,
       to: `${"sales@panamatravel.co.uk"}`,
       replyTo: email,
-      subject: "New Inquiry Received",
+      subject: `New Inquiry Received from ${email}`,
       html: htmlMessage,
     });
 
