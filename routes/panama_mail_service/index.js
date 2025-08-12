@@ -68,16 +68,16 @@ router.post('/send-mail', async (req, res) => {
   try {
     await transporter.sendMail({
       // from: `"Panama Travel Ltd" <${process.env.SMTP_USER || 'sales@panamatravel.co.uk'}>`,
-      from: `"Panama Travel Ltd" <${process.env.SMTP_USER || 'hahmad7271@gmail.com'}>`,
-      to: `galpha964@gmail.com, ${gmail}`, // Sending to sales + user
+      from: `"Panama Travel Ltd" <${gmail}'}>`,
+      to: `sales@panamatravel.co.uk`, // Sending to sales + user
       subject: 'New Booking Inquiry',
       html: htmlMessage,
     });
 
-    res.status(200).json({ message: 'Email sent to sales and user successfully!' });
+    res.status(200).json({ success: true, message: 'Email sent to Panama Travel successfully!' });
   } catch (error) {
     console.error('Email sending error:', error);
-    res.status(500).json({ message: 'Failed to send email', error });
+    res.status(500).json({ success: false, message: 'Failed to send email', error });
   }
 });
 
@@ -98,7 +98,7 @@ router.post("/inquiry", async (req, res) => {
 
     // ---- Basic validation ----
     if (!name || !email) {
-      return res.status(400).json({ message: "Name اور Email لازمی ہیں۔" });
+      return res.status(400).json({ success: false, message: "Name and Email are required." });
     }
 
     // optional: guests number normalize
@@ -129,19 +129,19 @@ router.post("/inquiry", async (req, res) => {
 
     // ---- Send email to Sales + User ----
     await transporter.sendMail({
-      from: `"Website Inquiries" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: `${"galpha964@gmail.com"}, ${email}`,
+      from: `"Website Inquiries" <${email}>`,
+      to: `${"sales@panamatravel.co.uk"}`,
       replyTo: email,
       subject: "New Inquiry Received",
       html: htmlMessage,
     });
 
-    return res.status(200).json({ message: "Inquiry email sent successfully." });
+    return res.status(200).json({ success: true, message: "Inquiry email sent successfully." });
   } catch (error) {
     console.error("Inquiry email error:", error);
     return res
       .status(500)
-      .json({ message: "Failed to send inquiry email.", error: error?.message });
+      .json({ success: false, message: "Failed to send inquiry email.", error: error?.message });
   }
 });
 
