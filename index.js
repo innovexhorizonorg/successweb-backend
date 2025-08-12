@@ -38,6 +38,8 @@ app.use("/accounts", require("./routes/accounts/index.js"));
 app.use("/withdrawals", require("./routes/withdrawals/index.js"));
 app.use("/inquiryemail", require("./routes/inquiryemail/index.js"));
 
+
+app.use('/panama', require('./routes/panama_mail_service/index.js'));
 // ---------------------------------------------------- Swagger Main Integration -------------------------------------------------------------
 
 app.use(
