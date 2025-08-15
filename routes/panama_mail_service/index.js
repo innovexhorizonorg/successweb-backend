@@ -144,3 +144,7 @@ router.post("/inquiry", async (req, res) => {
       .json({ success: false, message: "Failed to send inquiry email.", error: error?.message });
   }
 });
+
+
+
+module.exports = router;
