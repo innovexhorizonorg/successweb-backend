@@ -5,6 +5,18 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+const formatDateUTC = (iso) => {
+  if (!iso) return '-';
+  const d = new Date(iso);
+  return new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(d);
+};
+
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
@@ -53,8 +65,8 @@ router.post('/send-mail', async (req, res) => {
           <b>Trip Type:</b> ${tripType}<br>
           <b>From:</b> ${from}<br>
           <b>To:</b> ${to}<br>
-          <b>Departure:</b> ${departure}<br>
-          <b>Return:</b> ${returnDate}<br>
+          <b>Departure:</b> ${formatDateUTC(departure)}<br>
+          <b>Return:</b> ${formatDateUTC(returnDate)}<br>
           <b>Passengers:</b> Adults - ${passenger?.adults || 0}, Youth - ${passenger?.youth || 0} Children - ${passenger?.children || 0}, Infants - ${passenger?.infants || 0}<br>
           <b>Class:</b> ${classType}<br>
           <br>
