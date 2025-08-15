@@ -55,7 +55,7 @@ router.post('/send-mail', async (req, res) => {
           <b>To:</b> ${to}<br>
           <b>Departure:</b> ${departure}<br>
           <b>Return:</b> ${returnDate}<br>
-          <b>Passengers:</b> Adults - ${passenger?.adults || 0}, Children - ${passenger?.children || 0}, Infants - ${passenger?.infants || 0}<br>
+          <b>Passengers:</b> Adults - ${passenger?.adults || 0}, Youth - ${passenger?.youth || 0} Children - ${passenger?.children || 0}, Infants - ${passenger?.infants || 0}<br>
           <b>Class:</b> ${classType}<br>
           <br>
           Direct Flight Only: ${direct ? "Yes" : "No"}<br>
@@ -144,22 +144,3 @@ router.post("/inquiry", async (req, res) => {
       .json({ success: false, message: "Failed to send inquiry email.", error: error?.message });
   }
 });
-
-
-// router.post('/send', async (req, res) => {
-//   const { to, subject, text } = req.body;
-//   try {
-//     await transporter.sendMail({
-//       from: `"Panama Travel Ltd" <${process.env.SMTP_USER || 'galpha964@gmail.com'}>`,
-//       to,
-//       subject,
-//       text,
-//     });
-//     res.status(200).json({ message: 'Email sent successfully!' });
-//   } catch (error) {
-//     console.error('Email sending error:', error);
-//     res.status(500).json({ message: 'Failed to send email', error });
-//   }
-// });
-
-module.exports = router;
